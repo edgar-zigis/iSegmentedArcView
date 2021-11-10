@@ -1,0 +1,9 @@
+.DS_Store
+
+profile
+DerivedData
+
+xcuserdata/
+
+.build
+.swiftpm
