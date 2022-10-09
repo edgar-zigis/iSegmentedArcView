@@ -18,21 +18,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="48f-1T-Ggz" customClass="iSegmentedArcView" customModule="iSegmentedArcViewTest" customModuleProvider="target">
-                                <rect key="frame" x="19" y="150" width="374" height="90"/>
+                                <rect key="frame" x="18" y="150" width="375" height="375"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="startAngle">
-                                        <integer key="value" value="0"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title">
+                                        <string key="value">Outstanding
+      credit</string>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="sweepAngle">
-                                        <integer key="value" value="0"/>
-                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="value" value="150€"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o4g-x8-iW1">
-                                <rect key="frame" x="115" y="354" width="185" height="30"/>
+                                <rect key="frame" x="115" y="600" width="185" height="30"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <state key="normal" title="Version without storyboard"/>
                                 <connections>
@@ -44,7 +43,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="slider" destination="48f-1T-Ggz" id="Mf6-Vv-GV1"/>
+                        <outlet property="segmentedArcView" destination="48f-1T-Ggz" id="Mf6-Vv-GV1"/>
                         <outlet property="versionWithoutStoryBoardButton" destination="o4g-x8-iW1" id="EYs-ck-ujs"/>
                     </connections>
                 </viewController>
