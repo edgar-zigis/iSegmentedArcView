@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2776B56428F2CC0300491245 /* ArcSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2776B56328F2CC0300491245 /* ArcSegment.swift */; };
+		2776B56528F2CC0300491245 /* ArcSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2776B56328F2CC0300491245 /* ArcSegment.swift */; };
+		2776B56728F2CC9900491245 /* BlinkAnimationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2776B56628F2CC9900491245 /* BlinkAnimationSettings.swift */; };
+		2776B56828F2CC9900491245 /* BlinkAnimationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2776B56628F2CC9900491245 /* BlinkAnimationSettings.swift */; };
+		2776B56A28F2CD1100491245 /* Coordinate2F.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2776B56928F2CD1100491245 /* Coordinate2F.swift */; };
+		2776B56B28F2CD1100491245 /* Coordinate2F.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2776B56928F2CD1100491245 /* Coordinate2F.swift */; };
 		C03480E52496176700A942B1 /* iSegmentedArcView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03480D62496176700A942B1 /* iSegmentedArcView.swift */; };
 		C03480F0249618C700A942B1 /* iSegmentedArcView.h in Headers */ = {isa = PBXBuildFile; fileRef = C03480D72496176700A942B1 /* iSegmentedArcView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C03480F2249619F700A942B1 /* iSegmentedArcView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03480D62496176700A942B1 /* iSegmentedArcView.swift */; };
@@ -45,6 +51,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2776B56328F2CC0300491245 /* ArcSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcSegment.swift; sourceTree = "<group>"; };
+		2776B56628F2CC9900491245 /* BlinkAnimationSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlinkAnimationSettings.swift; sourceTree = "<group>"; };
+		2776B56928F2CD1100491245 /* Coordinate2F.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate2F.swift; sourceTree = "<group>"; };
 		C03480D62496176700A942B1 /* iSegmentedArcView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iSegmentedArcView.swift; sourceTree = "<group>"; };
 		C03480D72496176700A942B1 /* iSegmentedArcView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iSegmentedArcView.h; sourceTree = "<group>"; };
 		C03480D92496176700A942B1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -79,6 +88,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2776B56228F2CBF100491245 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				2776B56328F2CC0300491245 /* ArcSegment.swift */,
+				2776B56628F2CC9900491245 /* BlinkAnimationSettings.swift */,
+				2776B56928F2CD1100491245 /* Coordinate2F.swift */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
 		C03480D42496176700A942B1 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +109,7 @@
 		C03480D52496176700A942B1 /* iSegmentedArcView */ = {
 			isa = PBXGroup;
 			children = (
+				2776B56228F2CBF100491245 /* Custom */,
 				C03480D62496176700A942B1 /* iSegmentedArcView.swift */,
 				C03480D72496176700A942B1 /* iSegmentedArcView.h */,
 				C03480D92496176700A942B1 /* Info.plist */,
@@ -260,7 +280,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2776B56428F2CC0300491245 /* ArcSegment.swift in Sources */,
+				2776B56A28F2CD1100491245 /* Coordinate2F.swift in Sources */,
 				C03480E52496176700A942B1 /* iSegmentedArcView.swift in Sources */,
+				2776B56728F2CC9900491245 /* BlinkAnimationSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,8 +293,11 @@
 			files = (
 				C03480F2249619F700A942B1 /* iSegmentedArcView.swift in Sources */,
 				C03480F4249619F700A942B1 /* ViewController.swift in Sources */,
+				2776B56828F2CC9900491245 /* BlinkAnimationSettings.swift in Sources */,
+				2776B56B28F2CD1100491245 /* Coordinate2F.swift in Sources */,
 				C03480F5249619F700A942B1 /* ViewControllerWithoutStoryBoard.swift in Sources */,
 				C03480F6249619F700A942B1 /* AppDelegate.swift in Sources */,
+				2776B56528F2CC0300491245 /* ArcSegment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
