@@ -47,7 +47,7 @@ public class iSegmentedArcView: UIView {
      * Sets segment thickness
      */
     @IBInspectable
-    open var segmentThickness: CGFloat = 7.5 {
+    open var segmentThickness: CGFloat = 9 {
         didSet {
             setNeedsDisplay()
         }

@@ -11,12 +11,12 @@ import iSegmentedArcView
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var slider: iSegmentedArcView!
+    @IBOutlet weak var segmentedArcView: iSegmentedArcView!
     @IBOutlet weak var versionWithoutStoryBoardButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        slider.segments = [
+        segmentedArcView.segments = [
             ArcSegment(color: UIColor(red: 235/255, green: 63/255, blue: 37/255, alpha: 1)),
             ArcSegment(color: UIColor(red: 235/255, green: 63/255, blue: 37/255, alpha: 1)),
             ArcSegment(color: UIColor(red: 239/255, green: 201/255, blue: 86/255, alpha: 1), animate: true),
