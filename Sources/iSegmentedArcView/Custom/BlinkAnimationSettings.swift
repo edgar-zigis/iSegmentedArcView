@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct BlinkAnimationSettings {
+public struct BlinkAnimationSettings {
     let minAlpha: CGFloat
     let maxAlpha: CGFloat
     let duration: TimeInterval
