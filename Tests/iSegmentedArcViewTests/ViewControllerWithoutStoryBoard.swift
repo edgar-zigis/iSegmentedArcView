@@ -23,6 +23,8 @@ class ViewControllerWithoutStoryBoard: UIViewController {
     }
     
     private func applyStyle(to v: iSegmentedArcView) {
+        v.title = "Outstanding\n      credit"
+        v.value = "150€"
         v.segments = [
             ArcSegment(color: UIColor(red: 235/255, green: 63/255, blue: 37/255, alpha: 1)),
             ArcSegment(color: UIColor(red: 235/255, green: 63/255, blue: 37/255, alpha: 1)),

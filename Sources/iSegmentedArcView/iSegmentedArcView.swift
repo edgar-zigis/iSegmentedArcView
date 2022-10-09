@@ -57,7 +57,7 @@ public class iSegmentedArcView: UIView {
      * Sets the title text
      */
     @IBInspectable
-    open var title: String = "" {
+    open var title: NSString = "" {
         didSet {
             setNeedsDisplay()
         }
@@ -67,7 +67,7 @@ public class iSegmentedArcView: UIView {
      * Sets the value text
      */
     @IBInspectable
-    open var value: String = "" {
+    open var value: NSString = "" {
         didSet {
             setNeedsDisplay()
         }
@@ -97,7 +97,7 @@ public class iSegmentedArcView: UIView {
      * Sets the font of the title text
      */
     @IBInspectable
-    open var titleFont: UIFont = .systemFont(ofSize: 20) {
+    open var titleTextFont: UIFont = .systemFont(ofSize: 20) {
         didSet {
             setNeedsDisplay()
         }
@@ -107,7 +107,7 @@ public class iSegmentedArcView: UIView {
      * Sets the font of the value text
      */
     @IBInspectable
-    open var valueFont: UIFont = .boldSystemFont(ofSize: 55) {
+    open var valueTextFont: UIFont = .boldSystemFont(ofSize: 55) {
         didSet {
             setNeedsDisplay()
         }
@@ -162,6 +162,11 @@ public class iSegmentedArcView: UIView {
     }
     
     //  MARK: - UI methods -
+    
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        backgroundColor = .clear
+    }
     
     public override func draw(_ rect: CGRect) {
         super.draw(rect)
@@ -228,11 +233,48 @@ public class iSegmentedArcView: UIView {
     }
     
     private func drawTitleText(in rect: CGRect, context: CGContext) {
-        //  TODO: Implement
+        context.saveGState()
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .center
+        
+        let attributes = [
+            NSAttributedString.Key.font : titleTextFont,
+            NSAttributedString.Key.paragraphStyle : paragraphStyle,
+            NSAttributedString.Key.foregroundColor : titleTextColor
+        ]
+        let textSize = title.size(withAttributes: attributes)
+        
+        title.draw(
+            at: CGPoint(x: (rect.width - textSize.width) / 2, y: rect.height / 4.8 + titleVerticalOffset),
+            withAttributes: attributes
+        )
+        
+        context.restoreGState()
     }
     
     private func drawValueText(in rect: CGRect, context: CGContext) {
-        //  TODO: Implement
+        context.saveGState()
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .center
+        
+        let attributes = [
+            NSAttributedString.Key.font : valueTextFont,
+            NSAttributedString.Key.paragraphStyle : paragraphStyle,
+            NSAttributedString.Key.foregroundColor : valueTextColor
+        ]
+        let textSize = value.size(withAttributes: attributes)
+        
+        value.draw(
+            at: CGPoint(
+                x: (rect.width - textSize.width) / 2,
+                y: rect.height / 2 - textSize.height / 2 + valueVerticalOffset
+            ),
+            withAttributes: attributes
+        )
+               
+        context.restoreGState()
     }
     
     //  MARK: - Util methods -
