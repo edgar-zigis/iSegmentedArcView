@@ -169,28 +169,62 @@ public class iSegmentedArcView: UIView {
             return
         }
 
-        let outerRadius = rect.width / 2
-        let innerRadius = outerRadius - segmentThickness
         let segmentSweepAngle = (sweepAngle - (Double((segments.count - 1)) * segmentSeparationAngle)) / Double(segments.count)
         
-        var startAngle = startAngle
-        segments.forEach {
-            let sweepAngle = useCustomSweepAgles ? $0.sweepAngle : segmentSweepAngle
+        var startAngle = self.startAngle
+        for (index, segment) in segments.enumerated() {
+            let sweepAngle = useCustomSweepAgles ? segment.sweepAngle : segmentSweepAngle
             drawArcSegment(
-                $0,
-                cx: outerRadius,
-                cy: outerRadius,
-                rInn: innerRadius,
-                rOut: outerRadius,
-                startAngle: startAngle,
-                sweepAngle: sweepAngle,
-                context: context
+                segment,
+                startAngle: deg2rad(startAngle),
+                endAngle: deg2rad(startAngle + sweepAngle),
+                index: UInt32(index),
+                rect: rect
             )
             startAngle += (sweepAngle + segmentSeparationAngle)
         }
         
         drawTitleText(in: rect, context: context)
         drawValueText(in: rect, context: context)
+    }
+    
+    private func drawArcSegment(
+        _ segment: ArcSegment,
+        startAngle: Double,
+        endAngle: Double,
+        index: UInt32,
+        rect: CGRect
+    ) {
+        let radius = rect.width / 2
+        let segmentLayer = CAShapeLayer()
+        
+        let path = UIBezierPath(
+            arcCenter: CGPoint(x: radius, y: radius),
+            radius: radius,
+            startAngle: startAngle,
+            endAngle: endAngle,
+            clockwise: true
+        )
+        
+        segmentLayer.path = path.cgPath
+        segmentLayer.position = CGPoint(x: bounds.midX - radius, y: bounds.midY - radius)
+        segmentLayer.fillColor = UIColor.clear.cgColor
+        segmentLayer.lineCap = .round
+        segmentLayer.strokeColor = segment.color.cgColor
+        segmentLayer.lineWidth = segmentThickness
+        
+        if segment.animate {
+            let animation = CABasicAnimation(keyPath: "opacity")
+            animation.duration = blinkAnimationSettings.duration
+            animation.fromValue = blinkAnimationSettings.minAlpha
+            animation.toValue = blinkAnimationSettings.maxAlpha
+            animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+            animation.repeatCount = 999
+            animation.autoreverses = true
+            segmentLayer.add(animation, forKey: #keyPath(CALayer.opacity))
+        }
+        
+        layer.insertSublayer(segmentLayer, at: index)
     }
     
     private func drawTitleText(in rect: CGRect, context: CGContext) {
@@ -201,16 +235,9 @@ public class iSegmentedArcView: UIView {
         //  TODO: Implement
     }
     
-    private func drawArcSegment(
-        _ segment: ArcSegment,
-        cx: Double,
-        cy: Double,
-        rInn: Double,
-        rOut: Double,
-        startAngle: Double,
-        sweepAngle: Double,
-        context: CGContext
-    ) {
-        //  TODO: Implement
+    //  MARK: - Util methods -
+    
+    private func deg2rad(_ number: Double) -> Double {
+        return number * .pi / 180
     }
 }
