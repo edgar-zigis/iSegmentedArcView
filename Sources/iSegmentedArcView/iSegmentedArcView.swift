@@ -37,7 +37,7 @@ public class iSegmentedArcView: UIView {
      * Sets distance between segments
      */
     @IBInspectable
-    open var segmentSeparationAngle: CGFloat = 9 {
+    open var segmentSeparationAngle: Double = 9 {
         didSet {
             setNeedsDisplay()
         }
@@ -159,5 +159,58 @@ public class iSegmentedArcView: UIView {
         didSet {
             setNeedsDisplay()
         }
+    }
+    
+    //  MARK: - UI methods -
+    
+    public override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        guard let context = UIGraphicsGetCurrentContext() else {
+            return
+        }
+
+        let outerRadius = rect.width / 2
+        let innerRadius = outerRadius - segmentThickness
+        let segmentSweepAngle = (sweepAngle - (Double((segments.count - 1)) * segmentSeparationAngle)) / Double(segments.count)
+        
+        var startAngle = startAngle
+        segments.forEach {
+            let sweepAngle = useCustomSweepAgles ? $0.sweepAngle : segmentSweepAngle
+            drawArcSegment(
+                $0,
+                cx: outerRadius,
+                cy: outerRadius,
+                rInn: innerRadius,
+                rOut: outerRadius,
+                startAngle: startAngle,
+                sweepAngle: sweepAngle,
+                context: context
+            )
+            startAngle += (sweepAngle + segmentSeparationAngle)
+        }
+        
+        drawTitleText(in: rect, context: context)
+        drawValueText(in: rect, context: context)
+    }
+    
+    private func drawTitleText(in rect: CGRect, context: CGContext) {
+        //  TODO: Implement
+    }
+    
+    private func drawValueText(in rect: CGRect, context: CGContext) {
+        //  TODO: Implement
+    }
+    
+    private func drawArcSegment(
+        _ segment: ArcSegment,
+        cx: Double,
+        cy: Double,
+        rInn: Double,
+        rOut: Double,
+        startAngle: Double,
+        sweepAngle: Double,
+        context: CGContext
+    ) {
+        //  TODO: Implement
     }
 }
