@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct ArcSegment {
+public struct ArcSegment {
     let gradientStart: UIColor
     let gradientEnd: UIColor
     let animate: Bool = false
