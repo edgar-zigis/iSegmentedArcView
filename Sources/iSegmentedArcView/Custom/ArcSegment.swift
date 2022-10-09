@@ -10,8 +10,7 @@ import Foundation
 import UIKit
 
 public struct ArcSegment {
-    let gradientStart: UIColor
-    let gradientEnd: UIColor
+    let color: UIColor
     var animate: Bool = false
     var sweepAngle: Double = 0
 }
