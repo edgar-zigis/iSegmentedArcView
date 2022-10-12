@@ -13,4 +13,10 @@ public struct BlinkAnimationSettings {
     let minAlpha: CGFloat
     let maxAlpha: CGFloat
     let duration: TimeInterval
+    
+    public init(minAlpha: CGFloat, maxAlpha: CGFloat, duration: TimeInterval) {
+        self.minAlpha = minAlpha
+        self.maxAlpha = maxAlpha
+        self.duration = duration
+    }
 }
