@@ -20,3 +20,12 @@ public struct BlinkAnimationSettings {
         self.duration = duration
     }
 }
+
+extension BlinkAnimationSettings: Equatable {
+    
+    public static func ==(lhs: BlinkAnimationSettings, rhs: BlinkAnimationSettings) -> Bool {
+        lhs.minAlpha == rhs.minAlpha &&
+        lhs.maxAlpha == rhs.maxAlpha &&
+        lhs.duration == rhs.duration
+    }
+}

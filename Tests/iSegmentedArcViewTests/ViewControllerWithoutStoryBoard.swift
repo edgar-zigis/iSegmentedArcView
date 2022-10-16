@@ -15,9 +15,14 @@ class ViewControllerWithoutStoryBoard: UIViewController {
         super.viewDidLoad()
         
         let segmentedArcView = iSegmentedArcView()
-        segmentedArcView.frame = CGRect(x: 16, y: 60, width: UIScreen.main.bounds.width - 32, height: UIScreen.main.bounds.width - 32)
         applyStyle(to: segmentedArcView)
         view.addSubview(segmentedArcView)
+        
+        segmentedArcView.translatesAutoresizingMaskIntoConstraints = false
+        segmentedArcView.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
+        segmentedArcView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16).isActive = true
+        segmentedArcView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 32).isActive = true
+        segmentedArcView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 32).isActive = true
         
         view.backgroundColor = .white
     }

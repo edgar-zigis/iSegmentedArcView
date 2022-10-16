@@ -24,3 +24,12 @@ public struct ArcSegment {
         self.sweepAngle = sweepAngle
     }
 }
+
+extension ArcSegment: Equatable {
+    
+    public static func ==(lhs: ArcSegment, rhs: ArcSegment) -> Bool {
+        lhs.color == rhs.color &&
+        lhs.animate == rhs.animate &&
+        lhs.sweepAngle == rhs.sweepAngle
+    }
+}
